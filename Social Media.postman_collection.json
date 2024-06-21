@@ -1,0 +1,649 @@
+{
+	"info": {
+		"_postman_id": "5345fdb5-8683-4dca-9794-e3ce9e4ca899",
+		"name": "Social Media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36300678"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Yuti\",\r\n    \"lastName\":\"Dhonde\",\r\n    \"email\":\"yuti@123\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTUyNzk4LCJleHAiOjE3MTkwMzkxOTgsImVtYWlsIjoieXV0aUAxMjMifQ.NoUtcWQzq-cYLE4sl8Zz7iI1dlpdMYaFFxQNa6TW4PHnM6-2jEO0zAk4u-tgGYtNuleivX_yghXd9XUiX6qmrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"yuti@123\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user from token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTYwOTc4LCJleHAiOjE3MTkwNDczNzgsImVtYWlsIjoieXV0aUAxMjMifQ.sakSV10QQ7vqeiY0kgko6kQzObFX3d2YdhV8pkGtVA7eh3ZPodwxrpYn9aUDmRovuvdx_HvXPS4AOHMO_szIEg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "jwt",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5454/api/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTYwOTc4LCJleHAiOjE3MTkwNDczNzgsImVtYWlsIjoieXV0aUAxMjMifQ.sakSV10QQ7vqeiY0kgko6kQzObFX3d2YdhV8pkGtVA7eh3ZPodwxrpYn9aUDmRovuvdx_HvXPS4AOHMO_szIEg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gender\":\"Female\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/users/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "follow unfollow user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/users/follow/1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"users",
+								"follow",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "query",
+									"value": "TIsha",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5454/users/search?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "create post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTY2MDU4LCJleHAiOjE3MTkwNTI0NTgsImVtYWlsIjoieXV0aUAxMjMifQ.dBLGz-w5mTCFcavBQu9jBFDcgOOIEwWKbAjeXmGbNSFiRHGzVer-i3A-nPsYYvASwp9H1cDgczCLIqPPsob25A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"caption\":\"This is my Second post\",\r\n    \"image\":\"https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-169994-674010.jpg&fm=jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/posts/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"posts",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTY2MDU4LCJleHAiOjE3MTkwNTI0NTgsImVtYWlsIjoieXV0aUAxMjMifQ.dBLGz-w5mTCFcavBQu9jBFDcgOOIEwWKbAjeXmGbNSFiRHGzVer-i3A-nPsYYvASwp9H1cDgczCLIqPPsob25A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/posts/like/3/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"posts",
+								"like",
+								"3",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get post by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTY2MDU4LCJleHAiOjE3MTkwNTI0NTgsImVtYWlsIjoieXV0aUAxMjMifQ.dBLGz-w5mTCFcavBQu9jBFDcgOOIEwWKbAjeXmGbNSFiRHGzVer-i3A-nPsYYvASwp9H1cDgczCLIqPPsob25A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/posts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"posts",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find user post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTY2MDU4LCJleHAiOjE3MTkwNTI0NTgsImVtYWlsIjoieXV0aUAxMjMifQ.dBLGz-w5mTCFcavBQu9jBFDcgOOIEwWKbAjeXmGbNSFiRHGzVer-i3A-nPsYYvASwp9H1cDgczCLIqPPsob25A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/posts/user/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"posts",
+								"user",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "save post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/posts/save/2/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"posts",
+								"save",
+								"2",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coment",
+			"item": [
+				{
+					"name": "Create Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTY2MDU4LCJleHAiOjE3MTkwNTI0NTgsImVtYWlsIjoieXV0aUAxMjMifQ.dBLGz-w5mTCFcavBQu9jBFDcgOOIEwWKbAjeXmGbNSFiRHGzVer-i3A-nPsYYvASwp9H1cDgczCLIqPPsob25A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Nice Post\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/comments/post/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"comments",
+								"post",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reel",
+			"item": [
+				{
+					"name": "Create reel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTcxMjA1LCJleHAiOjE3MTkwNTc2MDUsImVtYWlsIjoieXV0aUAxMjMifQ.0-Yb_M_eHpeLbSXcsgUCQ2b_PrYK30zz8Jaz8F-UGSkNt3sKmJX8APOEYb8Q86nTVO4Ox3brjIZFTyMlhMeW7g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"My first reel\",\r\n    \"video\":\"https://videos.pexels.com/video-files/5948574/5948574-sd_640_360_30fps.mp4\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5454/api/reels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"reels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTcxMjA1LCJleHAiOjE3MTkwNTc2MDUsImVtYWlsIjoieXV0aUAxMjMifQ.0-Yb_M_eHpeLbSXcsgUCQ2b_PrYK30zz8Jaz8F-UGSkNt3sKmJX8APOEYb8Q86nTVO4Ox3brjIZFTyMlhMeW7g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/reels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"reels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find user reel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjb2Rld2l0aHRpc2hhIiwiaWF0IjoxNzE4OTcxMjA1LCJleHAiOjE3MTkwNTc2MDUsImVtYWlsIjoieXV0aUAxMjMifQ.0-Yb_M_eHpeLbSXcsgUCQ2b_PrYK30zz8Jaz8F-UGSkNt3sKmJX8APOEYb8Q86nTVO4Ox3brjIZFTyMlhMeW7g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5454/api/reels/user/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5454",
+							"path": [
+								"api",
+								"reels",
+								"user",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
